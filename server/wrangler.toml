@@ -1,0 +1,6 @@
+name = "fuel"
+type = "webpack"
+account_id = "aa966ecd41671563b75eb6b6486dda13"
+workers_dev = true
+route = ""
+zone_id = ""

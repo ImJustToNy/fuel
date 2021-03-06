@@ -1,19 +1,17 @@
 <template>
   <div>
-    <div @click="updateFuelType('95')">
-      95
+    <div v-if="!loading && !error">
+      <button
+        v-for="(value, name) in prices"
+        :key="name"
+        @click="updateFuelType(name)"
+      >
+        {{ name }} ({{ value }} zł)
+      </button>
     </div>
 
-    <div @click="updateFuelType('98')">
-      98
-    </div>
-
-    <div @click="updateFuelType('ON')">
-      ON
-    </div>
-
-    <div @click="updateFuelType('LPG')">
-      LPG
+    <div v-if="error">
+      {{ error }}
     </div>
   </div>
 </template>
@@ -21,14 +19,29 @@
 <script>
 export default {
   name: "FuelType",
+  data: function() {
+    return {
+      prices: {},
+      loading: true,
+      error: '',
+    };
+  },
+  mounted() {
+    this.$http.get('prices')
+        .then(r => {
+          this.prices = r.data;
+        })
+        .catch(() => {
+          this.error = 'There was an error while trying to get average fuel prices'
+        })
+        .finally(() => {
+          this.loading = false
+        })
+  },
   methods: {
     updateFuelType(fuel) {
-      console.log(fuel)
+      this.$emit('price', this.prices[fuel])
     }
   }
 }
 </script>
-
-<style scoped>
-
-</style>

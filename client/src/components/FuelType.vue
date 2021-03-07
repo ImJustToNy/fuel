@@ -1,12 +1,16 @@
 <template>
   <div>
-    <div v-if="!loading && !error">
+    <div
+      v-if="!loading && !error"
+      class="grid grid-cols-2 md:grid-flow-col md:grid-cols-none gap-5"
+    >
       <button
         v-for="(value, name) in prices"
         :key="name"
+        class="rounded bg-green-500 text-gray-50 shadow-md p-2 hover:bg-green-600 transform hover:scale-110 transition"
         @click="updateFuelType(name)"
       >
-        {{ name }} ({{ value }} zł)
+        {{ name }} <span class="ml-2 font-light text-gray-100">{{ value }} zł/l</span>
       </button>
     </div>
 

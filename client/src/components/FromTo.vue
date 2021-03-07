@@ -1,14 +1,17 @@
 <template>
-  <div>
+  <div class="grid gap-4 grid-cols-1 md:grid-cols-2">
     <places
       placeholder="Where are you heading from?"
       :disabled="loading"
       @change="place => updatePlace('from', place)"
+      class="border appearance-none border-gray-300 rounded w-full px-3 h-12 py-3"
     />
+
     <places
       placeholder="Where are you heading to?"
       :disabled="loading"
       @change="place => updatePlace('to', place)"
+      class="border appearance-none border-gray-300 rounded w-full px-3 h-12 py-3"
     />
   </div>
 </template>

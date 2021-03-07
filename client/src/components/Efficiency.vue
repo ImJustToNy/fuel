@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="my-3">
     <label>
       <input
         :value="value"
@@ -7,7 +7,8 @@
         step=".5"
         min="1"
         max="50"
-        placeholder="5.67"
+        placeholder="What's your car efficiency (l/100km)?"
+        class="border appearance-none border-gray-300 rounded w-full h-12 px-3 py-3"
         @input="$emit('input', $event.target.value || null)"
       >
     </label>
@@ -23,3 +24,14 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+</style>

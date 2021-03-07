@@ -1,6 +1,21 @@
 <template>
-  <div id="app" class="container">
-    <h1>Fuel calculator</h1>
+  <div
+    id="app"
+    class="container mx-auto px-4"
+  >
+    <div class="flex items-center">
+      <div class="text-4xl py-3 font-bold flex-1">
+        Fuel
+
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-8 inline">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+        </svg>
+      </div>
+
+      <a href="https://siek.io" class="text-right flex-1 font-light text-gray-400 hover:text-gray-500">
+        Antoni Siek
+      </a>
+    </div>
 
     <FromTo @distance="distance = $event" />
 
@@ -8,8 +23,14 @@
 
     <FuelType @price="price = $event" />
 
-    <div v-if="result">
-      Result: {{ result }}
+    <div v-if="result" class="mt-5 w-full text-right">
+      <span class="text-xl text-gray-700">
+        Result:
+      </span>
+
+      <span class="text-3xl font-extrabold">
+        {{ result }} zł
+      </span>
     </div>
   </div>
 </template>
@@ -30,7 +51,7 @@ export default {
     return {
       distance: null,
       price: null,
-      efficiency: 5.5,
+      efficiency: null,
     };
   },
   computed: {
@@ -45,8 +66,8 @@ export default {
 }
 </script>
 
-<style scoped>
-.container {
+<style>
+body {
 
 }
 </style>

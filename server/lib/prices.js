@@ -24,7 +24,7 @@ async function handler(request) {
 
             prices = JSON.stringify(results)
 
-            await FUEL.put('prices', prices, {expirationTtl: 60})
+            await FUEL.put('prices', prices, {expirationTtl: 86400})
         } else {
             return new Response(null, {
                 status: 500

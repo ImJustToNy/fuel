@@ -36,7 +36,7 @@ export default {
           this.prices = r.data;
         })
         .catch(() => {
-          this.error = 'There was an error while trying to get average fuel prices'
+          this.error = 'Wystąpił błąd podczas próby pobrania średnich cen paliw.';
         })
         .finally(() => {
           this.loading = false

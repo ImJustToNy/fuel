@@ -82,9 +82,3 @@ export default {
   }
 }
 </script>
-
-<style>
-body {
-
-}
-</style>

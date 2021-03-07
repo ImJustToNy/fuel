@@ -1,14 +1,14 @@
 <template>
   <div class="grid gap-4 grid-cols-1 md:grid-cols-2">
     <places
-      placeholder="Where are you heading from?"
+      placeholder="Skąd jedziesz?"
       :disabled="loading"
       class="border appearance-none border-gray-300 rounded w-full px-3 h-12 py-3"
       @change="place => updatePlace('from', place)"
     />
 
     <places
-      placeholder="Where are you heading to?"
+      placeholder="Gdzie jedziesz?"
       :disabled="loading"
       class="border appearance-none border-gray-300 rounded w-full px-3 h-12 py-3"
       @change="place => updatePlace('to', place)"
@@ -49,7 +49,7 @@ export default {
         }).then(r => {
           this.$emit('distance', r.data.distance);
         }).catch(() => {
-          this.error = 'There was an error while trying to fetch distance'
+          this.error = 'Wystąpił problem podczas próby sprawdzenia odległości.'
         }).finally(() => {
           this.loading = false
         })

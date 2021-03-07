@@ -1,9 +1,9 @@
 import Vue from 'vue'
+import VueCookies from 'vue-cookies'
 import axios from 'axios';
-
 import App from './App.vue'
 
-Vue.config.productionTip = false
+import './assets/tailwind.css'
 
 if (process.env.NODE_ENV === 'development') {
   axios.defaults.baseURL = 'http://localhost:8787'
@@ -13,7 +13,10 @@ if (process.env.NODE_ENV === 'development') {
 
 Vue.prototype.$http = axios
 
-import './assets/tailwind.css'
+Vue.use(VueCookies)
+Vue.$cookies.config('1y')
+
+Vue.config.productionTip = false
 
 new Vue({
   render: h => h(App),

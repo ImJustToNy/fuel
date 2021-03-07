@@ -42,7 +42,7 @@
       class="mt-5 w-full text-right"
     >
       <span class="text-xl text-gray-700">
-        Result:
+        Szacowany koszt:
       </span>
 
       <span class="text-3xl font-extrabold">

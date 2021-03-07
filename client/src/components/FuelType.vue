@@ -7,10 +7,11 @@
       <button
         v-for="(value, name) in prices"
         :key="name"
-        class="rounded bg-green-500 text-gray-50 shadow-md p-2 hover:bg-green-600 transform hover:scale-110 transition"
+        class="rounded bg-green-500 text-gray-50 shadow-md p-2 hover:bg-green-600 transform hover:scale-105 transition focus:outline-none"
+        :class="{ 'active': selected === name }"
         @click="updateFuelType(name)"
       >
-        {{ name }} <span class="ml-2 font-light text-gray-100">{{ value }} zł/l</span>
+        <span class="font-bold">{{ name }}</span> <span class="ml-2 font-light text-gray-100">{{ value }} zł/l</span>
       </button>
     </div>
 
@@ -28,12 +29,17 @@ export default {
       prices: {},
       loading: true,
       error: '',
+      selected: null,
     };
   },
   mounted() {
     this.$http.get('prices')
         .then(r => {
           this.prices = r.data;
+
+          if (this.$cookies.isKey('last_fuel_type')) {
+            this.updateFuelType(this.$cookies.get('last_fuel_type'));
+          }
         })
         .catch(() => {
           this.error = 'Wystąpił błąd podczas próby pobrania średnich cen paliw.';
@@ -44,8 +50,16 @@ export default {
   },
   methods: {
     updateFuelType(fuel) {
+      this.selected = fuel;
       this.$emit('price', this.prices[fuel])
+      this.$cookies.set('last_fuel_type', fuel);
     }
   }
 }
 </script>
+
+<style scoped>
+.active {
+  @apply bg-green-600 scale-110;
+}
+</style>

@@ -8,7 +8,7 @@
         min="1"
         max="50"
         placeholder="Ile pali twoje auto (l/100km)?"
-        class="border appearance-none border-gray-300 rounded w-full h-12 px-3 py-3"
+        class="border appearance-none border-gray-300 rounded w-full h-12 px-3 py-3 active:border-blue-300 outline-none"
         @input="inputChanged"
       >
     </label>

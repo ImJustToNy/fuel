@@ -5,7 +5,12 @@ import App from './App.vue'
 
 Vue.config.productionTip = false
 
-axios.defaults.baseURL = 'http://localhost:8787'
+if (process.env.NODE_ENV) {
+  axios.defaults.baseURL = 'http://localhost:8787'
+} else {
+  axios.defaults.baseURL = 'https://fuel.siek.workers.dev/'
+}
+
 Vue.prototype.$http = axios
 
 import './assets/tailwind.css'

@@ -15,7 +15,10 @@
       </button>
     </div>
 
-    <div v-if="error">
+    <div
+      v-if="error"
+      class="text-black dark:text-white"
+    >
       {{ error }}
     </div>
   </div>

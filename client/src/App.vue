@@ -4,7 +4,7 @@
     class="container mx-auto px-4"
   >
     <div class="flex items-center">
-      <div class="text-4xl py-3 font-bold flex-1">
+      <div class="text-4xl py-3 font-bold flex-1 dark:text-white">
         Fuel
 
         <svg
@@ -25,7 +25,7 @@
 
       <a
         href="https://siek.io"
-        class="text-right flex-1 font-light text-gray-400 hover:text-gray-500"
+        class="text-right flex-1 font-light text-gray-400 hover:text-gray-500 dark:text-gray-200 dark:hover:text-gray-300"
       >
         Antoni Siek
       </a>
@@ -41,11 +41,11 @@
       v-if="result"
       class="mt-5 w-full text-right"
     >
-      <span class="text-xl text-gray-700">
+      <span class="text-xl text-gray-700 dark:text-gray-400">
         Szacowany koszt:
       </span>
 
-      <span class="text-3xl font-extrabold">
+      <span class="text-3xl font-extrabold dark:text-white">
         {{ result }} zł
       </span>
     </div>
@@ -82,3 +82,9 @@ export default {
   }
 }
 </script>
+
+<style>
+body {
+  @apply dark:bg-gray-900;
+}
+</style>

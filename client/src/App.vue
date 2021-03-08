@@ -84,7 +84,7 @@ export default {
 </script>
 
 <style>
-body {
+html {
   @apply dark:bg-gray-900;
 }
 </style>

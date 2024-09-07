@@ -4,7 +4,9 @@ updates:
     directory: "client"
     schedule:
       interval: "daily"
+    open-pull-requests-limit: 0
   - package-ecosystem: "npm"
     directory: "server"
     schedule:
       interval: "daily"
+    open-pull-requests-limit: 0

@@ -10,7 +10,7 @@
     "author": "Antoni Siek <antoni@siek.io>",
     "license": "ISC",
     "devDependencies": {
-        "prettier": "^1.17.0"
+        "prettier": "^3.3.3"
     },
     "dependencies": {
         "cheerio": "^1.0.0-rc.5",
